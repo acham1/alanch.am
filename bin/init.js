@@ -1,13 +1,10 @@
 #!/usr/bin/env node
 
-var app = require("../app/app");
-var debug = require("debug")("core:server");
-var http = require("http");
+const expressApp = require("../app/express");
+const http = require("http");
 
-var port = normalizePort(process.env.PORT || "3000");
-app.set("port", port);
-
-var server = http.createServer(app);
+const port = normalizePort(process.env.PORT || "3000");
+const server = http.createServer(expressApp);
 
 server.listen(port);
 server.on("error", onError);
@@ -40,5 +37,5 @@ function onError(error) {
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-  debug("Listening on " + bind);
+  console.info("Listening on " + bind);
 }
