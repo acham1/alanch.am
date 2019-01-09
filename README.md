@@ -1,7 +1,7 @@
 # Core
 
-alanch.am web application entry point.
+alanch.am web project entry point.
 
-## Deploy
+## Deploying a Service
 
-`gcloud app deploy`
+`gcloud app deploy services/<service_directory>`
