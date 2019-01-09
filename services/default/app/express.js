@@ -1,7 +1,7 @@
 const express = require("express");
-const logger = require("morgan")("combined");
+const logger = require("morgan");
 
 const app = express();
-app.use(logger);
+app.use(logger("combined"));
 
 module.exports = app;
