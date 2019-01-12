@@ -20,8 +20,8 @@ const bucketProxy = bucketName => {
       paths.push(notFoundPage);
     }
 
-    for (let path of paths) {
-      const file = bucket.file(path);
+    const files = paths.map(path => bucket.file(path));
+    for (let file of files) {
       const [exists] = await file.exists();
       if (exists) {
         return file.createReadStream().pipe(res);
