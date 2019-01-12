@@ -24,6 +24,8 @@ const bucketProxy = bucketName => {
     for (let file of files) {
       const [exists] = await file.exists();
       if (exists) {
+        const metadata = await file.getMetadata();
+        res.type(metadata[0].contentType);
         return file.createReadStream().pipe(res);
       }
     }
