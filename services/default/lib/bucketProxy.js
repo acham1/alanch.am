@@ -1,17 +1,33 @@
 const gcs = require("@google-cloud/storage");
 const _ = require("lodash/fp");
 
-const bucketProxy = async bucketName => {
+const isNonTrivial = path => Boolean(path.replace(/\//g, ""));
+
+const bucketProxy = bucketName => {
   const storage = new gcs.Storage();
   const bucket = storage.bucket(bucketName);
-  // let metadata = await bucket.getMetadata(bucketName);
-  // const mainPageSuffix = _.get("website.mainPageSuffix")(metadata);
-  // const notFoundPage = _.get("website.notFoundPage")(metadata);
 
   return async (req, res, _next) => {
-    const path = req.path.slice(1);
-    const file = bucket.file(path);
-    file.createReadStream().pipe(res);
+    const metadata = await bucket.getMetadata();
+    const mainPageSuffix = _.get("0.website.mainPageSuffix")(metadata);
+    const notFoundPage = _.get("0.website.notFoundPage")(metadata);
+    let paths = isNonTrivial(req.path) ? [req.path] : [];
+
+    if (mainPageSuffix) {
+      paths.push(`${req.path}/${mainPageSuffix}`);
+    }
+    if (notFoundPage) {
+      paths.push(notFoundPage);
+    }
+
+    for (let path of paths) {
+      const file = bucket.file(path);
+      const [exists] = await file.exists();
+      if (exists) {
+        return file.createReadStream().pipe(res);
+      }
+    }
+    return res.status(404).end();
   };
 };
 
