@@ -1,7 +1,7 @@
 const gcs = require("@google-cloud/storage");
 const _ = require("lodash/fp");
 
-const isNonTrivial = path => Boolean(path.replace(/\//g, ""));
+const _isNonTrivial = path => Boolean(path.replace(/\//g, ""));
 
 const bucketProxy = bucketName => {
   const storage = new gcs.Storage();
@@ -11,7 +11,7 @@ const bucketProxy = bucketName => {
     const metadata = await bucket.getMetadata();
     const mainPageSuffix = _.get("0.website.mainPageSuffix")(metadata);
     const notFoundPage = _.get("0.website.notFoundPage")(metadata);
-    let paths = isNonTrivial(req.path) ? [req.path] : [];
+    let paths = _isNonTrivial(req.path) ? [req.path] : [];
 
     if (mainPageSuffix) {
       paths.push(`${req.path}/${mainPageSuffix}`);
