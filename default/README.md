@@ -1,4 +1,4 @@
-# Default
+# default
 The web UI is bootstrapped with [Create React App](https://github.com/facebook/create-react-app). An Express.js server serves the builds.
 
 ## DEVELOPMENT
