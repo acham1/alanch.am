@@ -1,7 +1,11 @@
 # Core
+Mono-repo for the alanch.am web project. 
 
-alanch.am web project entry point.
+## App Engine Services
+Project responsibilites are predominantly divided across [GAE](https://cloud.google.com/appengine/) services.
 
-## Deploying a Service
+### Default
+As the project's UI entry point, an [Express.js](https://github.com/expressjs/express) serves generated assets developed with [React](https://reactjs.org/).
 
-`gcloud app deploy services/<service_directory>`
+## Assets
+Static assets are stored in public [GCS](https://cloud.google.com/storage/) bucket `gs://assets.alanch.am`, which comprises a backend bucket for the https://alanch.am load balancer. Resources can be accessed over the web at URL `https://alanch.am/<resource path>`.
