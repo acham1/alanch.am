@@ -1,5 +1,5 @@
-# Core
-Mono-repo for the alanch.am web project. 
+# alanch.am
+Mono-repo for my hodge-podge web project, a collection of fun things.
 
 ## App Engine Services
 Project responsibilites are predominantly divided across [GAE](https://cloud.google.com/appengine/) services.
