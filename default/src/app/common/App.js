@@ -16,14 +16,18 @@ const theme = muiStyles.createMuiTheme({
 
 class App extends Component {
   render() {
+    console.log(`Rendering: isOpen ${this.props.drawerOpen}`);
     return (
       <muiStyles.MuiThemeProvider theme={theme}>
         <div className="App">
           <muiCore.AppBar color="primary" position="fixed">
-            <muiCore.Toolbar variant="dense">
+            <muiCore.Toolbar
+              variant="dense"
+              classes={{ root: this.props.classes.root }}
+            >
               <muiCore.IconButton
                 color="inherit"
-                onClick={clickEvent => console.log(clickEvent.target)}
+                onClick={this.props.onToggleDrawerOpen}
               >
                 <MenuIcon />
               </muiCore.IconButton>
@@ -32,10 +36,31 @@ class App extends Component {
               </muiCore.Typography>
             </muiCore.Toolbar>
           </muiCore.AppBar>
+          <muiCore.Drawer
+            variant="persistent"
+            anchor="left"
+            open={this.props.drawerOpen}
+          >
+            Children
+          </muiCore.Drawer>
         </div>
       </muiStyles.MuiThemeProvider>
     );
   }
 }
 
-export default connect()(App);
+const mapStateToProps = state => ({
+  drawerOpen: state.drawer.open
+});
+
+const mapDispatchToProps = dispatch => ({
+  onToggleDrawerOpen: () => {
+    console.log("TOGGLED");
+    dispatch({ type: "TOGGLE_DRAWER_OPEN" });
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(muiStyles.withStyles({ root: { marginLeft: "100px" } })(App));
