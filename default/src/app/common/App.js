@@ -3,26 +3,30 @@ import * as muiCore from "@material-ui/core";
 import * as muiStyles from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 
-const theme = createMuiTheme({
+const theme = muiStyles.createMuiTheme({
   palette: {
-    primary: colors.amber
+    primary: muiCore.colors.pink,
+    secondary: muiCore.colors.deepOrange
+  },
+  typography: {
+    useNextVariants: true
   }
 });
 
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
+      <muiStyles.MuiThemeProvider theme={theme}>
         <div className="App">
-          <AppBar color="primary" position="fixed">
-            <Toolbar>
-              <Typography variant="h6" color="inherit">
-                Title
-              </Typography>
-            </Toolbar>
-          </AppBar>
+          <muiCore.AppBar color="primary" position="fixed">
+            <muiCore.Toolbar variant="dense">
+              <muiCore.IconButton color="inherit" onClick={console.log}>
+                <MenuIcon />
+              </muiCore.IconButton>
+            </muiCore.Toolbar>
+          </muiCore.AppBar>
         </div>
-      </MuiThemeProvider>
+      </muiStyles.MuiThemeProvider>
     );
   }
 }
