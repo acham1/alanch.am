@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import * as colors from "@material-ui/core/colors";
-import "./App.css";
+import * as muiCore from "@material-ui/core";
+import * as muiStyles from "@material-ui/core/styles";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const theme = createMuiTheme({
   palette: {
