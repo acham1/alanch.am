@@ -1,5 +1,9 @@
+data "google_organization" "alanch-am-organization" {
+  domain = "alanch.am"
+}
+
 resource "google_project" "smorgasbord" {
-  name = "Smorgasbord"
+  name       = "Smorgasbord"
   project_id = "alanch-am-smorgasbord"
-  org_id     = "1234567"
+  org_id     = data.google_organization.alanch-am-organization.id
 }
