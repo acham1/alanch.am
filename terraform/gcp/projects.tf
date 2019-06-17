@@ -3,7 +3,7 @@ data "google_organization" "alanch-am-organization" {
 }
 
 resource "google_project" "smorgasbord" {
-  name       = "Smorgasbord"
+  name       = "smorgasbord"
   project_id = "alanch-am-smorgasbord"
   org_id     = data.google_organization.alanch-am-organization.id
 }
