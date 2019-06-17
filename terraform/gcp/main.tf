@@ -4,3 +4,7 @@ terraform {
     prefix = "terraform/state"
   }
 }
+
+provider "google" {
+	version = "~> 2.8"
+}
