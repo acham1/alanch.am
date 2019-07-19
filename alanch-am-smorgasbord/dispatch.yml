@@ -1,0 +1,3 @@
+dispatch:
+- url: shitmoji.quinnsu.cz/*
+  module: shitmoji
