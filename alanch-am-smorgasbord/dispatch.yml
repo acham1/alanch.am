@@ -1,3 +1,5 @@
 dispatch:
 - url: shitmoji.quinnsu.cz/*
   module: shitmoji
+- url: www.shitmoji.quinnsu.cz/*
+  module: shitmoji
