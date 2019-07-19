@@ -3,3 +3,7 @@ dispatch:
   module: shitmoji
 - url: www.shitmoji.quinnsu.cz/*
   module: shitmoji
+- url: shitmoji.alanch.am/*
+  module: shitmoji
+- url: www.shitmoji.alanch.am/*
+  module: shitmoji
