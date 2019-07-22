@@ -1,0 +1,4 @@
+[submodule "apps/shitmoji"]
+	path = apps/shitmoji
+	url = https://github.com/acham1/shitmoji
+	branch = master
