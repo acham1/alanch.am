@@ -1,4 +1,4 @@
-resource "google_storage_bucket" "static-assets-bucket" {
+resource "google_storage_bucket" "static-assets" {
   name = "assets.alanch.am"
 
   location = "US-WEST1"
