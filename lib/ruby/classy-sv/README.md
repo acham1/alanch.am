@@ -1,7 +1,7 @@
 # classy-sv
 A classy way to read CSV files.
 
-# About "Seven Languages in Seven Weeks" by Bruce Tate
+## About "Seven Languages in Seven Weeks" by Bruce Tate
 classy-sv is an answer to the Day 3 challenge on Ruby meta-programming, extending from the ActsAsCsv module. In the spirit of having fun with Ruby, this implementation leverages language features like method overriding, module-powered mixins, mixin-powered macros. The result is a cute DSL for CSV parsing.
 
 ## Usage
