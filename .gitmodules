@@ -2,3 +2,7 @@
 	path = apps/shitmoji
 	url = https://github.com/acham1/shitmoji
 	branch = master
+[submodule "lib/ruby/classy-sv"]
+	path = lib/ruby/classy-sv
+	url = https://github.com/acham1/classy-sv
+	branch = master
