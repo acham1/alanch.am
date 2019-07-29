@@ -6,3 +6,7 @@
 	path = lib/ruby/classy-sv
 	url = https://github.com/acham1/classy-sv
 	branch = master
+[submodule "lib/typescript/expresaga"]
+	path = lib/typescript/expresaga
+	url = https://github.com/acham1/expresaga
+	branch = master
