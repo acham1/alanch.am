@@ -1,3 +1,5 @@
+# This defines a service account with scoped permissions for the Helm Tiller
+# server, which applies Helm charts into Kubernetes resources.
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -16,4 +18,4 @@ subjects:
   - kind: ServiceAccount
     name: tiller
     namespace: kube-system
-    
+
